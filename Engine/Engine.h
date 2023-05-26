@@ -1,7 +1,12 @@
 #pragma once
+
+
+
+
 class Engine
 {
 public:
+
 	void Init(const WindowInfo& info);
 	void Render();
 
@@ -21,6 +26,5 @@ private:
 	shared_ptr<class CommandQueue> _cmdQueue;
 	shared_ptr<class SwapChain> _swapChain;
 	shared_ptr<class DescriptorHeap> _descHeap;
-
 };
 

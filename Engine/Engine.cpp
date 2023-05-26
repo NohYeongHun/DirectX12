@@ -5,7 +5,6 @@
 #include "SwapChain.h"
 #include "DescriptorHeap.h"
 
-
 void Engine::Init(const WindowInfo& info)
 {
 	_window = info;
@@ -14,7 +13,7 @@ void Engine::Init(const WindowInfo& info)
 	// 그려질 화면 크기를 설정
 	_viewport = { 0, 0, static_cast<FLOAT>(info.width), static_cast<FLOAT>(info.height), 0.0f, 1.0f };
 	_scissorRect = CD3DX12_RECT(0, 0, info.width, info.height);
-	
+
 	_device = make_shared<Device>();
 	_cmdQueue = make_shared<CommandQueue>();
 	_swapChain = make_shared<SwapChain>();
@@ -30,7 +29,7 @@ void Engine::Render()
 {
 	RenderBegin();
 
-	// TODO : 나머지 물체를 그려준다
+	// TODO : 나머지 물체들 그려준다
 
 	RenderEnd();
 }
