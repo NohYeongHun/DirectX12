@@ -8,6 +8,7 @@
 #include "Shader.h"
 #include "ConstantBuffer.h"
 #include "TableDescriptorHeap.h"
+#include "Texture.h"
 
 class Engine
 {
@@ -43,4 +44,3 @@ private:
 	shared_ptr<ConstantBuffer> _cb;
 	shared_ptr<TableDescriptorHeap> _tableDescHeap;
 };
-

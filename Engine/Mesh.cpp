@@ -5,7 +5,7 @@
 void Mesh::Init(const vector<Vertex>& vertexBuffer, const vector<uint32>& indexBuffer)
 {
 	CreateVertexBuffer(vertexBuffer);
-	CreateIndexBuffer(indexBuffer);	
+	CreateIndexBuffer(indexBuffer);
 }
 
 void Mesh::Render()
@@ -21,12 +21,16 @@ void Mesh::Render()
 	{
 		D3D12_CPU_DESCRIPTOR_HANDLE handle = GEngine->GetCB()->PushData(0, &_transform, sizeof(_transform));
 		GEngine->GetTableDescHeap()->SetCBV(handle, CBV_REGISTER::b0);
+
+		GEngine->GetTableDescHeap()->SetSRV(_tex->GetCpuHandle(), SRV_REGISTER::t0);
 	}
+
 	GEngine->GetTableDescHeap()->CommitTable();
 
 	//CMD_LIST->DrawInstanced(_vertexCount, 1, 0, 0);
 	CMD_LIST->DrawIndexedInstanced(_indexCount, 1, 0, 0, 0);
 }
+
 
 void Mesh::CreateVertexBuffer(const vector<Vertex>& buffer)
 {
@@ -54,7 +58,7 @@ void Mesh::CreateVertexBuffer(const vector<Vertex>& buffer)
 	// Initialize the vertex buffer view.
 	_vertexBufferView.BufferLocation = _vertexBuffer->GetGPUVirtualAddress();
 	_vertexBufferView.StrideInBytes = sizeof(Vertex); // 정점 1개 크기
-	_vertexBufferView.SizeInBytes = bufferSize; // 버퍼의 크기
+	_vertexBufferView.SizeInBytes = bufferSize; // 버퍼의 크기	
 }
 
 void Mesh::CreateIndexBuffer(const vector<uint32>& buffer)
@@ -62,7 +66,7 @@ void Mesh::CreateIndexBuffer(const vector<uint32>& buffer)
 	_indexCount = static_cast<uint32>(buffer.size());
 	uint32 bufferSize = _indexCount * sizeof(uint32);
 
-	CD3DX12_HEAP_PROPERTIES heapProperty = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
+	D3D12_HEAP_PROPERTIES heapProperty = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
 	D3D12_RESOURCE_DESC desc = CD3DX12_RESOURCE_DESC::Buffer(bufferSize);
 
 	DEVICE->CreateCommittedResource(
@@ -74,13 +78,12 @@ void Mesh::CreateIndexBuffer(const vector<uint32>& buffer)
 		IID_PPV_ARGS(&_indexBuffer));
 
 	void* indexDataBuffer = nullptr;
-	CD3DX12_RANGE readRange(0, 0);
+	CD3DX12_RANGE readRange(0, 0); // We do not intend to read from this resource on the CPU.
 	_indexBuffer->Map(0, &readRange, &indexDataBuffer);
 	::memcpy(indexDataBuffer, &buffer[0], bufferSize);
 	_indexBuffer->Unmap(0, nullptr);
 
 	_indexBufferView.BufferLocation = _indexBuffer->GetGPUVirtualAddress();
-	_indexBufferView.Format = DXGI_FORMAT_R32_UINT;
+	_indexBufferView.Format = DXGI_FORMAT_R32_UINT; // 32비트
 	_indexBufferView.SizeInBytes = bufferSize;
-
 }

@@ -2,16 +2,16 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Engine">
-      <UniqueIdentifier>{be3e9c62-a852-4d1c-b1f0-d1413d5dc6b0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utils">
-      <UniqueIdentifier>{32e83341-670b-44b6-868e-aaa8cc0a72fe}</UniqueIdentifier>
+      <UniqueIdentifier>{eb67749d-2d5d-4b4e-8838-f8b0eaed9bde}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource">
-      <UniqueIdentifier>{8ebfd407-8087-46fb-bd6d-325d4265e4ec}</UniqueIdentifier>
+      <UniqueIdentifier>{68081b07-7f7c-4d61-9915-d9e67a5071a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{2a3fe5ce-bf02-4f15-a5eb-362ad39eb031}</UniqueIdentifier>
     </Filter>
     <Filter Include="Shader">
-      <UniqueIdentifier>{119727f8-19f8-43c7-a536-3400b73d9a04}</UniqueIdentifier>
+      <UniqueIdentifier>{ad397ec0-4cf8-4a49-864d-7c4b7c2b9336}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,16 +27,13 @@
     <ClInclude Include="Engine.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Device.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="CommandQueue.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="SwapChain.h">
+    <ClInclude Include="Device.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="RootSignature.h">
+    <ClInclude Include="SwapChain.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
@@ -45,11 +42,17 @@
     <ClInclude Include="Shader.h">
       <Filter>Resource</Filter>
     </ClInclude>
+    <ClInclude Include="RootSignature.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
     <ClInclude Include="ConstantBuffer.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="TableDescriptorHeap.h">
       <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Resource</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -62,29 +65,32 @@
     <ClCompile Include="Engine.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Device.cpp">
+    <ClCompile Include="CommandQueue.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="CommandQueue.cpp">
+    <ClCompile Include="Device.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="SwapChain.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="RootSignature.cpp">
-      <Filter>Engine</Filter>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Resource</Filter>
     </ClCompile>
     <ClCompile Include="Mesh.cpp">
       <Filter>Resource</Filter>
     </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>Resource</Filter>
+    <ClCompile Include="RootSignature.cpp">
+      <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="ConstantBuffer.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="TableDescriptorHeap.cpp">
       <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Resource</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

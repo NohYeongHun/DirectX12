@@ -9,10 +9,11 @@ void Shader::Init(const wstring& path)
 
 	D3D12_INPUT_ELEMENT_DESC desc[] =
 	{
-		{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0},
-		{ "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0}
+		{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+		{ "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
+		{ "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 28, D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, 0 },
 	};
-	
+
 	_pipelineDesc.InputLayout = { desc, _countof(desc) };
 	_pipelineDesc.pRootSignature = ROOT_SIGNATURE.Get();
 
@@ -27,7 +28,6 @@ void Shader::Init(const wstring& path)
 	_pipelineDesc.SampleDesc.Count = 1;
 
 	DEVICE->CreateGraphicsPipelineState(&_pipelineDesc, IID_PPV_ARGS(&_pipelineState));
-
 }
 
 void Shader::Update()
@@ -47,6 +47,7 @@ void Shader::CreateShader(const wstring& path, const string& name, const string&
 	{
 		::MessageBoxA(nullptr, "Shader Create Failed !", nullptr, MB_OK);
 	}
+
 	shaderByteCode = { blob->GetBufferPointer(), blob->GetBufferSize() };
 }
 
