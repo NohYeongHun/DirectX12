@@ -47,5 +47,4 @@ void Input::Update()
 				state = KEY_STATE::NONE;
 		}
 	}
-
 }

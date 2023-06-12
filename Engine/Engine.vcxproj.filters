@@ -13,11 +13,14 @@
     <Filter Include="Shader">
       <UniqueIdentifier>{ad397ec0-4cf8-4a49-864d-7c4b7c2b9336}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Component">
-      <UniqueIdentifier>{022450dc-eb7a-4012-8e5c-731494ae0e00}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Manager">
       <UniqueIdentifier>{8e34bf76-2362-4b3b-9307-b29e9b31914a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject">
+      <UniqueIdentifier>{022450dc-eb7a-4012-8e5c-731494ae0e00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Test">
+      <UniqueIdentifier>{b47bb796-ac75-465b-8cd5-f972282da2f5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -67,19 +70,19 @@
       <Filter>Resource</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Component</Filter>
+      <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
-      <Filter>Component</Filter>
+      <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="MeshRenderer.h">
-      <Filter>Component</Filter>
+      <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
-      <Filter>Component</Filter>
+      <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="MonoBehaviour.h">
-      <Filter>Component</Filter>
+      <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Input.h">
       <Filter>Manager</Filter>
@@ -92,6 +95,15 @@
     </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleMath.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TestCameraScript.h">
+      <Filter>GameObject\Test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -138,19 +150,19 @@
       <Filter>Resource</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Component</Filter>
+      <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Transform.cpp">
-      <Filter>Component</Filter>
+      <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="MeshRenderer.cpp">
-      <Filter>Component</Filter>
+      <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
-      <Filter>Component</Filter>
+      <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="MonoBehaviour.cpp">
-      <Filter>Component</Filter>
+      <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Input.cpp">
       <Filter>Manager</Filter>
@@ -164,10 +176,24 @@
     <ClCompile Include="SceneManager.cpp">
       <Filter>Manager</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleMath.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="TestCameraScript.cpp">
+      <Filter>GameObject\Test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="..\Resources\Shader\default.hlsl">
       <Filter>Shader</Filter>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SimpleMath.inl">
+      <Filter>Utils</Filter>
+    </None>
   </ItemGroup>
 </Project>
